@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
+from random import uniform
 class CustomTurtleOperator(Node):
     def __init__(self, name):
         super().__init__(name)
@@ -11,12 +12,12 @@ class CustomTurtleOperator(Node):
 
     def callback(self):
         message = Twist()
-        message.linear.x = 1.0
-        message.linear.y = 0.0
-        message.linear.z = 0.0
-        message.angular.x = 0.0
-        message.angular.y = 0.0
-        message.angular.z = 1.0
+        message.linear.x = uniform(-1,1)
+        message.linear.y = uniform(-1,1)
+        message.linear.z = uniform(-1,1)
+        message.angular.x = uniform(-1,1)
+        message.angular.y = uniform(-1,1)
+        message.angular.z = uniform(-1,1)
         # self.get_logger().info(message)
         self.publisher.publish(message)
 
