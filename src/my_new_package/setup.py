@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            "example_node_executable = my_new_package.node_example:main"
         ],
     },
 )
