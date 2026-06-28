@@ -4,6 +4,9 @@ from rclpy.node import Node
 class CustomNode(Node):
     def __init__(self, name):
         super().__init__(name)
+        # call callback function every 1s
+        self.create_timer(1, callback=self.callback)
+    def callback(self):
         self.get_logger().info("hello world!")
 
 def main(args=None):
